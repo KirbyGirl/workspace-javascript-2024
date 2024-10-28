@@ -115,9 +115,17 @@
             <p id="p1"> Paragraph Number One </p>
             <p id="p2"> Paragraph Number two </p>
             <p id="p3"> Paragraph Number three </p>
-            <p>Please write JavaScript code to change the content of each paragraph.​
-            <p>
+            <p>Please write JavaScript code to change the content of each paragraph.​</p>
+            <script>
+                // change the first paragraph
+                const pOne=document.getElementById("p1");
+                pOne.textContent="I changed.";
+                const pThree=document.getElementById("p3");
+                pThree.innerHTML="<b> Bold Elements</b>";
+                const pTwo=document.getElementById("p2");
+                pTwo.innerHTML="<img src=\"img/superhero.jpg\" width=\"30%\" height=\"30%\">";
 
+            </script>
 
         </div>
 
@@ -126,8 +134,15 @@
             <p> Please enter your numbers </p>
             <script>
                 function calculate() {
+                    const input1=document.getElementsByName('num1')[0];
 
+                    const input2=document.getElementsByName('num2')[0];
 
+                    var a=parseFloat(input1.value);
+                    var b=parseFloat(input2.value);
+                    var c=a+b;
+                    const resultL=document.getElementById("result");
+                    resultL.textContent=" "+ c;
                 }
             </script>
             <p> <input type="text" name="num1" /> + <input type="text" name="num2">
@@ -147,7 +162,7 @@
                 </p>
 
                 <p id="message">
-
+                    
                 </p>
 
                 <p>
@@ -156,6 +171,18 @@
                     </label>
                 </p>
             </form>
+            <script>
+                // Event Handler
+                function welcome(){
+                    alert("Thank you! ")
+
+                }
+                // Binding -- Register the event
+                const nameE=document.getElementById('cName');
+                nameE.addEventListener('blur', welcome);
+
+
+            </script>
 
         </div>
 
