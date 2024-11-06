@@ -263,7 +263,35 @@
             </p>
 
             <script type="text/javascript">
+                
 
+
+                //event handlers
+                function getprice(){
+                    //get elements
+                    var year=document.getElementById('year');
+                    var condition=document.getElementById('condition');
+                    console.log(year.value);
+                    console.log(year.selectedIndex);
+                    if(year.value == "2003" && condition.value == "Fair"){
+                        price = 2000;
+                    } else{
+                        price = 3000;
+                    }
+                    if(year.value == "2004" && condition.value == "Good"){
+                        price = 2000;
+                    } else{
+                        price = 3000;
+                    }
+                    document.getElementById("price").innerHTML="The price is <b> "+ price + "</b>";
+
+                }
+
+                //add events
+                year.addEventListener('change',getprice,false);
+                condition.addEventListener('change',getprice,false);
+
+               
 
 
             </script>
@@ -272,9 +300,36 @@
 
         <div class="practice">
             <h1> Decision Statement - Switch</h1>
-            <p> Choose your favorite theme(warm, cool, hot)
+            <p> Choose your favorite theme(warm, cool, hot, stylish)
                 <input type="text" id="theme">
             </p>
+            <script>
+                // get element
+                var theme=document.getElementById('theme');
+                theme.addEventListener('blur',getheme,false);
+                //action
+                function getheme(){
+                    var themevalue = document.getElementById('theme').value;
+                    switch(themevalue){
+                        case "warm":
+                            document.body.style.backgroundColor = "yellow";
+                            break;
+                        case "hot":
+                            document.body.style.backgroundColor = "Red";
+                            break;
+                        case "cool":
+                            document.body.style.backgroundColor = "lightblue";
+                            break;
+                        case "stylish":
+                            document.body.style.backgroundImage = "url(../img/dog.jpg)";
+                            document.body.style.backgroundSize = "cover";
+                            break;
+                        default:
+                            alert("Please enter a valid theme.");
+                    }
+                }
+
+            </script>
 
         </div>
 
