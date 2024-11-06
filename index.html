@@ -354,11 +354,38 @@
 
             </p>
             <p>
-                <input type="button" value="Check Premium">
+                <input type="button" id="premium" value="Check Premium">
             </p>
-            <p id="result">
+            <p id="premresult">
 
             </p>
+
+            <script>
+                function getpremium(){
+                    var base = 10;
+                    var coverage = document.querySelector('input[name="coverage"]:checked').value;
+                    var ageindex = document.querySelector('#agegroup').selectedIndex;
+                    console.log("The coverage is: "+ coverage  +" age "+ ageindex);
+
+                    var agefactor = 0;
+                    switch(ageindex){
+                        case 0: agefactor = 0.08;
+                        
+                        break;
+
+                        default: break;
+                        
+
+                    }
+
+                    var premium = base + parseFloat(coverage)/1000*agefactor;
+                    
+
+                }
+                var bE = document.querySelector('input[value="Check Premium"]');
+                bE.addEventListener('click',getpremium,false);
+
+</script>
 
         </div>
 
@@ -372,6 +399,20 @@
             <p>
                 <input type="button" value="Click for Square">
             </p>
+            
+            <script>
+                var outlist = "<ul>";
+                for (let i = 0; i < 6; i++) {
+                    var square = i * i;
+                    outlist += "<li>" + i + "^2 = " + square +"<li>";
+                    //alert(square);
+                    
+                }
+                outlist += "</ul>";
+
+                document.getElementById('squarelist').innerHTML
+
+            </script>
 
         </div>
 
@@ -409,6 +450,12 @@
             <p> A simple JavaScript Quiz </p>
             <p>Target: Generate a simple substract and add problems using JavaScript and then check the answers</p>
             <a href="quiz1.html">Do your practice in quiz1.html</a>
+            <script>
+                for (let i = 0; i < 4; i++) {
+                    var num = Math.floor(Math.random()*6)+1;
+                    alert(num);
+                }
+            </script>
         </div>
 
         <div class="practice">
