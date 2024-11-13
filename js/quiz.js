@@ -32,9 +32,11 @@ document.querySelector('[value="4"]').nextSibling.nodeValue=M.toString()+"-" +S.
 function changeStyle(e){
     e.preventDefault(); //prevent the checkbox clicked --- otherwise two clicks
     var classname = this.getAttribute("class");
+    var sel = this.getElementsByClassName('answer selected');
     //alert("clicked class" + classname);
     if(classname=="answer"){
         this.setAttribute("class", "answer selected");
+        sel.setAttribute("class", "answer");
         
     }else{
         this.setAttribute("class", "answer");
