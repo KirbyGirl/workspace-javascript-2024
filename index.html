@@ -410,7 +410,7 @@
                 }
                 outlist += "</ul>";
 
-                document.getElementById('squarelist').innerHTML
+              //  document.getElementById('squarelist').innerHTML
 
             </script>
 
@@ -453,7 +453,7 @@
             <script>
                 for (let i = 0; i < 4; i++) {
                     var num = Math.floor(Math.random()*6)+1;
-                    alert(num);
+                   // alert(num);
                 }
             </script>
         </div>
@@ -461,7 +461,7 @@
         <div class="practice">
             <h1>Change Attribute -- Rolling a dice </h1>
             <p> <input type="button" id="roll" value="roll" /> </p>
-            <p> <img src="img/die1.png"> </p>
+            <p> <img src="img/die1.png" id="dieimg"> </p>
             <table>
                 <tr>
                     <th>Result</th>
@@ -482,6 +482,41 @@
                     <td id="r6"></td>
                 </tr>
             </table>
+            <script>
+                //practice array
+              //  const myarray= [1,2,3,4,5,6,7];
+              //  myarray.forEach(element => console.log(element));
+              //  myarray.push(8);
+              //  myarray.push(10);
+              //  myarray.pop();
+              //  myarray.push('a');
+              //  for(var i in myarray){
+              //      console.log(myarray[i]);
+              //  }
+              //  console.log(myarray);
+
+
+              var stats = [0,0,0,0,0,0];
+              function rolldice(){
+                console.log("Roll click works");
+                var imgE = document.querySelector('#dieimg');
+                var num = 3; //how to get random number
+
+                for (let i = 0; i < 6; i++) {
+                    var num = Math.floor(Math.random()*6)+1;
+                    imgE.setAttribute('src', 'img/die2.png');
+                    stats[num-1]++;
+                    document.getElementById('r'+num).textContent=stats[num-1].toString();
+                }
+                console.log(num);
+                
+
+              }
+
+              // bind the event
+              document.getElementById('roll').addEventListener('click', rolldice);
+
+            </script>
 
         </div>
 
@@ -504,7 +539,24 @@
                 <img src="img/usca5.jpg" alt="usca">
             </div>
 			<script>
-				
+				var imglist = document.querySelectorAll('.img-container-hide');
+                imglist[0].setAttribute('class', 'img-container');
+                var index = 0; //current img
+                //event -- change to next pictures
+                function changepic(){
+                    imglist[index].setAttribute('class', "img-container-hide");
+                    //next img
+                    index++;
+                    index = index % 5;
+                    imglist[index].setAttribute('class', 'img-container');
+
+                }
+                //bind the event
+                setInterval(changepic, 5000);
+                imglist[0].addEventListener('click', changepic);
+
+
+
 			</script>
 
 
